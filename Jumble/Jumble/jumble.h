@@ -9,10 +9,10 @@
 #include <ctime>
 class JumblePuzzle {
 private:
-
+    char** puzzle;
     
     
-    public:
-    JumblePuzzle(const std::string& hidden, const std::string& difficulty);
-    JumblePuzzle(JumblePuzzle& jb);
-}
+public:
+JumblePuzzle(const std::string& hidden, const std::string& difficulty);
+JumblePuzzle(JumblePuzzle& jb);
+};
