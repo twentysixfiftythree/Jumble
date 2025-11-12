@@ -237,7 +237,29 @@ void testJumble() {
 	else {
 		cout << "getJumble returns a puzzle with the correct characters." << endl;
 	}
+    // invalid difficulty strings
+    try {
+        JumblePuzzle jp("word", "EAZY"); // invalid difficulty
+        cout << "Failed: did not throw exception for invalid difficulty." << endl;
+    } catch (BadJumbleException&) {
+        cout << "Passed: invalid difficulty throws exception." << endl;
+    }
 
+    // empty word test
+    try {
+        JumblePuzzle jp("", "easy");
+        cout << "Failed: did not throw exception for empty word." << endl;
+    } catch (BadJumbleException&) {
+        cout << "Passed: empty word throws exception." << endl;
+    }
+
+    // too long word (if spec limits word length, e.g. 10 chars)
+    try {
+        JumblePuzzle jp("supercalifragilisticexpialidocious", "medium");
+        cout << "Failed: did not throw exception for long word." << endl;
+    } catch (BadJumbleException&) {
+        cout << "Passed: long word throws exception." << endl;
+    }
 
 } // end testJumble
 
