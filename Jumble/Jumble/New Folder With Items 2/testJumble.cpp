@@ -182,9 +182,9 @@ void testJumble() {
 	int Easy = 2;
 	int Medium = 3;
 	int Hard = 4;
-
+    // had to fix this because it's going by the easy difficulty when it's actually hard
 	int puzzleSize = jp7.getSize();
-	if (puzzleSize != word.length() * Easy) {
+	if (puzzleSize != word.length() * Hard) {
 		cout << "getSize is not functioning as required." << endl;
 	}
 

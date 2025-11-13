@@ -8,13 +8,13 @@
 #include "jumble.h"
 #include <cstdlib>
 #include <ctime>
-#include <algorithm>  // for std::transform
+#include <algorithm>  // helper for lowercase
 #include <cctype>     // for std::tolower
 
 
 void JumblePuzzle::insertWord() {
     bool fits = false;
-
+    //  goes until it finds a way to fit the word
     while (!fits) {
         direction = "nesw"[rand() % 4];
         row = rand() % puzzle_dim;
@@ -28,7 +28,7 @@ void JumblePuzzle::insertWord() {
             case 'w': if (col - wordLen + 1 < 0) fits = false; break;
         }
     }
-
+    // inserts the word
     for (int i = 0; i < wordLen; i++) {
         switch (direction) {
             case 'n': jumble[row - i][col] = hidden_word[i]; break;
